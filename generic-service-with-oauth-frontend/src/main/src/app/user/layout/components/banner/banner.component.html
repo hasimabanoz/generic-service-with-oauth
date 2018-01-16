@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="text-center">
+      <div class="logo"></div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+<ul class="nav nav-tabs">
+	<li [ngClass]="activeTab === 'dashboard' ? 'active' : ''">
+		<a routerLink="/user/dashboard" (click)="setActive('dashboard')">Dashboard</a>
+	</li>
+	<li [ngClass]="activeTab === 'funds' ? 'active' : ''">
+		<a routerLink="/user/funds" (click)="setActive('funds')">Funds</a>
+	</li>
+	<li [ngClass]="activeTab === 'functions' ? 'active' : ''">
+		<a routerLink="/user/functions" (click)="setActive('functions')">Functions</a>
+	</li>
+</ul>
+</div>

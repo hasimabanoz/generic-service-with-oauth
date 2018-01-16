@@ -1,0 +1,11 @@
+.navbar {
+	border-radius:0;
+	margin-bottom:0;
+	height:auto;
+}
+.logo {
+   background:url(logo.png) no-repeat;
+   width:258px;
+   height:30px;
+   margin:10px auto 0 auto;
+}

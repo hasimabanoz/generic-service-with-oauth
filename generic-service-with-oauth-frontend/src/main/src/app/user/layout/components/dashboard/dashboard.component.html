@@ -1,0 +1,86 @@
+<div class="form-group">
+	<div class="col-sm-2">
+		<select (change)="changeChart($event.target.value);" class="form-control">
+        <option value="Advance">Advance Pie Chart</option>
+        <option value="Pie">Pie Chart</option>
+        <option value="Bar">Bar Chart</option>
+		</select>
+	</div>
+	<div class="col-sm-2">
+		<select (change)="changeChartValue($event.target.value);" class="form-control">
+        <option value="totalPortfolioValue">Fon Portföy Değeri</option>
+        <option value="totalNominalAmount">Nominal Miktar</option>
+        <option value="totalPortfolioWeight">Portföy Ağırlığı</option>
+		</select>
+	</div>
+</div>
+<!-- Advance Pie vertical -->
+<div [ngSwitch]="chartType">
+    <div *ngSwitchCase="'Advance'">
+        <div class="fund-container" *ngFor="let fund of fundList; let i = index">
+            <ng-container *ngIf="fund.singleGraphicData">
+            <div class="page-header text-center">
+ 				 <h3>{{fund.name}}</h3>
+			</div>
+            <div class="chart-container">
+            <ngx-charts-advanced-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="fund.singleGraphicData"
+            [gradient]="gradient"
+            (select)="onSelect($event)">
+            </ngx-charts-advanced-pie-chart>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- Pie vertical -->
+    <div *ngSwitchCase="'Pie'">
+        <div class="fund-container" *ngFor="let fund of fundList; let i = index">
+            <ng-container *ngIf="fund.singleGraphicData">
+            <h2>{{fund.name}}</h2>
+            <div class="chart-container">
+            <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="fund.singleGraphicData"
+            [legend]="showLegend"
+            [legendTitle]="legendTitle"
+            [explodeSlices]="explodeSlices"
+            [labels]="showLabels"
+            [doughnut]="doughnut"
+            [gradient]="gradient"
+            (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- Bar vertical -->
+    <div *ngSwitchCase="'Bar'">
+        <div  class="fund-container" *ngFor="let fund of fundList; let i = index">
+            <ng-container *ngIf="fund.singleGraphicData">
+            <h2>{{fund.name}}</h2>
+            <div class="chart-container">
+            <ngx-charts-bar-vertical 
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="fund.singleGraphicData"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [legendTitle]="legendTitle"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)">
+                </ngx-charts-bar-vertical>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

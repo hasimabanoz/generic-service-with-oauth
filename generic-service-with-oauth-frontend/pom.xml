@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>generic-service-with-oauth-frontend</artifactId>
+
+	<name>generic-service-with-oauth-frontend</name>
+	<description>generic-service-with-oauth frontend project</description>
+
+	<parent>
+		<groupId>tr.com.j32bit</groupId>
+		<artifactId>generic-service-with-oauth</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>target/frontend</directory>
+				<targetPath>static</targetPath>
+			</resource>
+		</resources>
+	</build>
+
+</project>

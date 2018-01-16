@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="form-group clearfix"></div>
+ <div> <label>Upload price file:
+    <input #priceFileInput type="file" />
+    <input class="btn btn-primary" type="submit" (click)="fileChangePrice()" />
+  </label></div>
+  <div>
+  <label>
+    Upload amount file -BONDS :
+    <input #amountFileInput type="file" />
+    <input class="btn btn-primary" type="submit" (click)="fileChangeAmount()" />
+  </label></div>
+  <div><button class="btn btn-danger" (click)="reset()">RESET</button></div>
+</div>

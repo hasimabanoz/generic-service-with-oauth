@@ -1,0 +1,50 @@
+import { Fund } from './entity/fund';
+/*
+export const FUNDS: Fund[] = [
+  {
+    name: 'X Fund', shortName: 'xfund', assets: [
+      { assetName: 'Bond', portfolioValue: 222637514.947, avgirr: 0, duration: 330, portfolioWeight: 18.51, bmDuration: 67, bmWeight: 3.75, bmDiffPercent: 14.76, bmDiffDays: 263, return: 13, bmReturn: 5, security: 'TRT240724T15 GOVT', isin: 'TRT240724T15', issuer: 'TURKEY GOVERNMENT BOND', maturity: '24.07.2024', scenario: 10000000, nationalAmount: 25000000, avgCleanPrice: '88000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 90500, t1ValuationPrice: 91000, currency: 'TRY', coupon: 9.000 },
+      { assetName: 'Bond', portfolioValue: 182000000.000, avgirr: 0, duration: 278, portfolioWeight: 16.20, bmDuration: 46, bmWeight: 2.85, bmDiffPercent: 15.32, bmDiffDays: 251, return: 15, bmReturn: 8, security: 'TRT240724T15 GOVT', isin: 'TRT240724T15', issuer: 'TURKEY GOVERNMENT BOND', maturity: '02.03.2022', scenario: 10000000, nationalAmount: 20000000, avgCleanPrice: '96000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 11.000 },
+      { assetName: 'Bond', portfolioValue: 135000000.000, avgirr: 0, duration: 253, portfolioWeight: 9.12, bmDuration: 51, bmWeight: 4.23, bmDiffPercent: 19.42, bmDiffDays: 168, return: 15, bmReturn: 8, security: 'TRT240724T15 GOVT', isin: 'TRT240724T15', issuer: 'TURKEY GOVERNMENT BOND', maturity: '13.11.2019', scenario: 10000000, nationalAmount: 15000000, avgCleanPrice: '', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 90000, t1ValuationPrice: 0, currency: 'TRY', coupon: 13.000 },
+      { assetName: 'Bond', portfolioValue: 273000000.000, avgirr: 0, duration: 346, portfolioWeight: 16.5, bmDuration: 38, bmWeight: 6.42, bmDiffPercent: 11.95, bmDiffDays: 412, return: 15, bmReturn: 8, security: 'TRT240724T15 GOVT', isin: 'TRT240724T15', issuer: 'TURKEY GOVERNMENT BOND', maturity: '24.10.2018', scenario: 10000000, nationalAmount: 30000000, avgCleanPrice: '88974', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 0 },
+      { assetName: 'Bond', portfolioValue: 270000000.000, avgirr: 0, duration: 289, portfolioWeight: 12.36, bmDuration: 74, bmWeight: 5.12, bmDiffPercent: 10.83, bmDiffDays: 269, return: 15, bmReturn: 8, security: 'TRT240724T15 GOVT', isin: 'TRT240724T15', issuer: 'TURKEY GOVERNMENT BOND', maturity: '11.03.2020', scenario: 10000000, nationalAmount: 30000000, avgCleanPrice: '89000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 90000, t1ValuationPrice: 0, currency: 'TRY', coupon: 11.16 },
+      { assetName: 'Corporate Bond', portfolioValue: 4550000000.000, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5, spread: 4, security: 'TRFAKBK21826 CORP', isin: 'TRFAKBK21826', issuer: 'AKBANK TAS', maturity: '20.02.2018', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 0 },
+      { assetName: 'Corporate Bond', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'TRSGRAN61815 CORP', isin: 'TRSGRAN61815', issuer: 'TURKIYE GARANTI BANKASI', maturity: '22.06.2018', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 0 },
+      { assetName: 'Corporate Bond', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'TRSZORN21927 CORP', isin: 'TRSZORN21927', issuer: 'ZORLU ENERJI ELEKTRIK', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'Equity', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'AKBNK TI Equity', ticker: '#N/A Invalid Field', name: 'AKBANK T.A.S.', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'Equity', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'AKBNK TI Equity', ticker: '#N/A Invalid Field', name: 'TURKIYE GARANTI BANKASI', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'Equity', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'AKBNK TI Equity', ticker: '#N/A Invalid Field', name: 'KOC HOLDING AS', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'Equity', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'AKBNK TI Equity', ticker: '#N/A Invalid Field', name: 'HACI OMER SABANCI HOLDING', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'Equity', portfolioValue: 4550000000.000, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8, spread: 4, security: 'GARAN TI Equity', ticker: '#N/A Invalid Field', name: 'TOFAS TURK OTOMOBIL FABRIKA', maturity: '22.02.2019', scenario: 10000000, nationalAmount: 5000000, avgCleanPrice: '98000', irr: '', bucket: '', dtm: 2432, avgDirtyPrice: 0, valuationPrice: 91000, t1ValuationPrice: 0, currency: 'TRY', coupon: 18.512 },
+      { assetName: 'IMM', portfolioValue: 15, avgirr: 12, duration: 5, portfolioWeight: 6, bmWeight: 9, bmDiffPercent: 13, return: 13, bmReturn: 5, },
+      { assetName: 'Repo', portfolioValue: 15, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'Time Deposit', portfolioValue: 15, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'Time Deposit', portfolioValue: 21, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8 }
+    ],
+    summary: [
+      { assetName: 'Bond', portfolioValue: 18.5, avgirr: 10, duration: 6, portfolioWeight: 5.5, bmDuration: 18, bmWeight: 15, bmDiffPercent: 16, bmDiffDays: 15, return: 14, bmReturn: 6 },
+      { assetName: 'Corporate Bond', portfolioValue: 13, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5, spread: 4 },
+      { assetName: 'Equity', portfolioValue: 12, equityW: 5, portfolioWeight: 6, bmWeight: 9, bmDiffPercent: 13, return: 13, bmReturn: 5 },
+      { assetName: 'EuroBond', portfolioValue: 15.8, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'IMM', portfolioValue: 5, avgirr: 12, duration: 5, portfolioWeight: 6, bmWeight: 9, bmDiffPercent: 13, return: 13, bmReturn: 5 },
+      { assetName: 'Repo', portfolioValue: 12.9, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'Time Deposit', portfolioValue: 16, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 }
+    ], showAssets: false,
+    showSummary: false
+  },
+  {
+    name: 'Y Fund', shortName: 'xfund',
+    assets: [
+      { assetName: 'EuroBond', portfolioValue: 15, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'EuroBond', portfolioValue: 21, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8 },
+      { assetName: 'Time Deposit', portfolioValue: 15, avgirr: 12, duration: 5, portfolioWeight: 6, bmDuration: 8, bmWeight: 9, bmDiffPercent: 13, bmDiffDays: 7, return: 13, bmReturn: 5 },
+      { assetName: 'Time Deposit', portfolioValue: 21, avgirr: 8, duration: 7, portfolioWeight: 5, bmDuration: 9, bmWeight: 8, bmDiffPercent: 17, bmDiffDays: 8, return: 15, bmReturn: 8 }
+    ],
+    summary: [
+      { assetName: 'EuroBond', portfolioValue: 23, avgirr: 10, duration: 6, portfolioWeight: 5.5, bmDuration: 18, bmWeight: 15, bmDiffPercent: 16, bmDiffDays: 15, return: 14, bmReturn: 6 },
+      { assetName: 'Time Deposit', portfolioValue: 13.8, avgirr: 10, duration: 6, portfolioWeight: 5.5, bmDuration: 18, bmWeight: 15, bmDiffPercent: 16, bmDiffDays: 15, return: 14, bmReturn: 6 }
+
+    ], showAssets: false,
+    showSummary: false
+  }
+];*/

@@ -1,0 +1,165 @@
+<div *ngIf="selectedFund">
+  <div class="form-group clearfix"></div>
+  <b>Theme:</b>
+  <select (change)="changeTheme($event.target.value);">
+      <option value="web">Web</option>
+      <option value="office">Office</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="darkblue">Dark Blue</option>
+</select>
+<div class="form-group clearfix"></div>
+
+  <div class="panel panel-default" id="bondsPanel">
+    <div class="panel-heading">
+      Corp. Bonds
+    </div>
+    <div class="panel-body">
+      <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideCorpBondColumns'" [title]="'Show/Hide Columns'"   >
+        <div #ShowHideCorpBondColumns>
+          <jqxListBox (onCheckChange)="listBoxOnCheckChangeForCorpBond($event)" [width]="'100%'" [height]="230" [source]="corpBondListSource" [checkboxes]="true">
+          </jqxListBox>
+        </div>
+      </jqxPopover>
+      <div style="height: 33px;" id="ShowHideCorpBondColumns">
+        <jqxButton #buttonReference id="button" [template]="'success'">
+          Show/Hide
+        </jqxButton>
+      </div>
+      <div class="table-responsive">
+        <jqxDataTable #corpBondDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="corpBondDataAdapter"
+          [width]="auto" [columns]="corpBondColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true" [ready]="ready"
+          [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true" [columnsResize]="true"
+          [filterable]="false" [filterMode]="'simple'">
+        </jqxDataTable>
+      </div>
+    </div>
+  </div>
+
+    <div class="panel panel-default" id="bondsPanel">
+      <div class="panel-heading">
+        Bonds
+      </div>
+      <div class="panel-body">
+          <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideGovBondColumns'" [title]="'Show/Hide Columns'"   >
+            <div #ShowHideGovBondColumns>
+              <jqxListBox (onCheckChange)="listBoxOnCheckChangeForGovBond($event)" [width]="'100%'" [height]="230" [source]="govBondListSource" [checkboxes]="true">
+              </jqxListBox>
+            </div>
+          </jqxPopover>
+          <div style="height: 33px;" id="ShowHideGovBondColumns">
+            <jqxButton #buttonReference id="button" [template]="'success'">
+              Show/Hide
+            </jqxButton>
+          </div>
+        <div class="table-responsive">
+          <jqxDataTable #govBondDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="govBondDataAdapter"
+            [width]="auto" [columns]="bondColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true" [ready]="ready"
+            [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true" [columnsResize]="true"
+            [filterable]="false" [filterMode]="'simple'">
+          </jqxDataTable>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" id="reposPanel">
+      <div class="panel-heading">Ters Repo</div>
+      <div class="panel-body">
+          <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideRepoColumns'" [title]="'Show/Hide Columns'"  >
+            <div #ShowHideRepoColumns>
+              <jqxListBox (onCheckChange)="listBoxOnCheckChangeForRepo($event)" [width]="'100%'" [height]="230" [source]="repoListSource" [checkboxes]="true">
+              </jqxListBox>
+            </div>
+          </jqxPopover>
+          <div style="height: 33px;" id="ShowHideRepoColumns">
+            <jqxButton #buttonReference id="button" [template]="'success'">
+              Show/Hide
+            </jqxButton>
+          </div>
+        <div class="table-responsive">
+          <jqxDataTable #repoDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="repoDataAdapter"
+            [width]="auto" [columns]="repoColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true" [ready]="ready"
+            [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true" [columnsResize]="true"
+            [filterable]="false" [filterMode]="'simple'">
+          </jqxDataTable>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" id="immsPanel">
+      <div class="panel-heading">BPP</div>
+      <div class="panel-body">
+          <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideIMMColumns'" [title]="'Show/Hide Columns'"   >
+            <div #ShowHideIMMColumns>
+              <jqxListBox (onCheckChange)="listBoxOnCheckChangeForIMM($event)" [width]="'100%'" [height]="230" [source]="immListSource" [checkboxes]="true">
+              </jqxListBox>
+            </div>
+          </jqxPopover>
+          <div style="height: 33px;" id="ShowHideIMMColumns">
+            <jqxButton #buttonReference id="button" [template]="'success'">
+              Show/Hide
+            </jqxButton>
+          </div>
+        <div class="table-responsive">
+          <jqxDataTable #immDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="immDataAdapter"
+            [width]="auto" [columns]="immColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true" [ready]="ready"
+            [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true" [columnsResize]="true"
+            [filterable]="false" [filterMode]="'simple'">
+          </jqxDataTable>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" id="depositsPanel">
+      <div class="panel-heading">Mevduat</div>
+      <div class="panel-body">
+          <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideTimeDepositsColumns'" [title]="'Show/Hide Columns'"  >
+            <div #ShowHideTimeDepositsColumns>
+              <jqxListBox (onCheckChange)="listBoxOnCheckChangeForTimeDeposits($event)" [width]="'100%'" [height]="230" [source]="timeDepositsListSource" [checkboxes]="true">
+              </jqxListBox>
+            </div>
+          </jqxPopover>
+          <div style="height: 33px;" id="ShowHideTimeDepositsColumns">
+            <jqxButton #buttonReference id="button" [template]="'success'">
+              Show/Hide
+            </jqxButton>
+          </div>
+        <div class="table-responsive">
+          <jqxDataTable #timeDepositsDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="timeDepositsDataAdapter"
+            [width]="auto" [columns]="timeDepositsColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true"
+            [ready]="ready" [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true"
+            [columnsResize]="true" [filterable]="false" [filterMode]="'simple'">
+          </jqxDataTable>
+        </div>
+      </div>
+    </div>
+      <div class="panel panel-default" id="equityPanel">
+        <div class="panel-heading">Hisse Senedi</div>
+        <div class="panel-body">
+            <jqxPopover [showCloseButton]="true" [position]="'bottom'" [selector]="'#ShowHideEquityColumns'" [title]="'Show/Hide Columns'"  >
+              <div #ShowHideEquityColumns>
+                <jqxListBox (onCheckChange)="listBoxOnCheckChangeForEquities($event)" [width]="'100%'" [height]="230" [source]="equityListSource" [checkboxes]="true">
+                </jqxListBox>
+              </div>
+            </jqxPopover>
+            <div style="height: 33px;" id="ShowHideEquityColumns">
+              <jqxButton #buttonReference id="button" [template]="'success'">
+                Show/Hide
+              </jqxButton>
+            </div>
+          <div class="table-responsive">
+            <jqxDataTable #equitiesDataTable (onCellEndEdit)="onCellEndEdit($event)" [editSettings]="editSettings" [source]="equitiesDataAdapter"
+              [width]="auto" [columns]="equityColumns" [selectionMode]="'singleRow'" [altRows]="true" [sortable]="true" [ready]="ready"
+              [pageable]="false" [showAggregates]="true" [aggregatesHeight]="25" [theme]="'web'" [editable]="true" [columnsResize]="true"
+              [filterable]="false" [filterMode]="'simple'">
+            </jqxDataTable>
+          </div>
+        </div>
+      </div>
+      <div class="form-group clearfix"></div>
+    <div *ngIf="this.selectedFund" class="panel panel-default" id="totalPanel">
+        <div class="panel-heading">Totals</div>
+        <div class="panel-body">
+      <p><b>Fund Total:</b> {{this.selectedFund.fundTotal | number:0}}</p>
+      <p><b>Fund Interest Total: </b> {{this.selectedFund.fundInterestTotal | number:0}}</p>
+    </div>
+    </div>
+
+    </div>

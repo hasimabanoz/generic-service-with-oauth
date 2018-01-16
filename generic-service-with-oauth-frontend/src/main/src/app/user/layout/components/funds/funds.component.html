@@ -1,0 +1,25 @@
+<div *ngIf="fundList">
+	<div class="form-group clearfix"></div>
+	<div class="col-sm-2">
+		<select [(ngModel)]="selectedFund" class="form-control">
+			<option *ngFor="let f of fundList" [ngValue]="f">{{f.name}}</option>
+		</select>
+	</div>
+	<div class="form-group clearfix"></div>
+	<mat-tab-group [selectedIndex]="1">
+		<mat-tab label="Summary">
+			<app-fund-summary [selectedFund]="selectedFund"></app-fund-summary>
+		</mat-tab>
+		<mat-tab label="Security Risk">
+			<app-security-risks [selectedFund]="selectedFund"></app-security-risks>
+		</mat-tab>
+		<mat-tab label="Risk Monitor"></mat-tab>
+		<mat-tab label="Cash Flow"></mat-tab>
+		<mat-tab label="Limit&Compliance"></mat-tab>
+		<mat-tab label="Security Settlement"></mat-tab>
+		<mat-tab label="Fund Report"></mat-tab>
+
+	</mat-tab-group>
+
+
+</div>
